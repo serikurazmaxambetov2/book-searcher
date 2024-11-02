@@ -10,7 +10,9 @@ import { BookService } from './book.service';
 import { BookCreateDto } from './dto/book-create.dto';
 import { BookFilterDto } from './dto/book-filter.dto';
 import { I18nService } from 'nestjs-i18n';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('book')
 @Controller('book')
 export class BookController {
   constructor(
