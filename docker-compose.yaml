@@ -1,0 +1,35 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    environment:
+      - DATABASE_URL=postgresql://postgres:12345678@postgres:5432/postgres?schema=public
+      - ELASTICSEARCH_URL=http://es:9200
+
+  scraper:
+    build: ./scraper
+    depends_on:
+      - backend
+    environment:
+      - BACKEND_URL=backend
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=12345678
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  es:
+    image: elasticsearch:7.17.22
+    environment:
+      - "discovery.type=single-node"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+
+volumes:
+  pgdata:
+  esdata:
