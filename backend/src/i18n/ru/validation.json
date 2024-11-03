@@ -1,5 +1,6 @@
 {
   "IS_NUMBER": "{property}: Должен быть числом",
   "IS_STRING": "{property}: Должен быть строкой",
-  "NOT_FOUND": "Не существует"
+  "NOT_FOUND": "Не существует",
+  "ALREADY_EXISTS": "Уже существует"
 }
