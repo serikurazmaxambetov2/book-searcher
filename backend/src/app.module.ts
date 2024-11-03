@@ -3,6 +3,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { BookModule } from './book/book.module';
 import { AcceptLanguageResolver, I18nModule } from 'nestjs-i18n';
 import { join } from 'path';
+import { SearchModule } from './search/search.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { join } from 'path';
       },
       resolvers: [AcceptLanguageResolver],
     }),
+    SearchModule,
   ],
 })
 export class AppModule {}
