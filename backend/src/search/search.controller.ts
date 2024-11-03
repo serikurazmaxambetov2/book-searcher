@@ -3,11 +3,11 @@ import {
   Controller,
   Delete,
   Get,
-  Param,
   Post,
+  Query,
 } from '@nestjs/common';
 import { SearchService } from './search.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiQuery, ApiTags } from '@nestjs/swagger';
 import { I18nService } from 'nestjs-i18n';
 
 @ApiTags('search')
@@ -16,7 +16,7 @@ export class SearchController {
   constructor(
     private searchService: SearchService,
     private i18n: I18nService,
-  ) {}
+  ) { }
 
   @Post('index')
   async createIndex() {
@@ -38,9 +38,14 @@ export class SearchController {
     return await this.searchService.deleteIndex();
   }
 
-  @Get(':text')
-  async search(@Param('text') text: string) {
-    const result = await this.searchService.search(text);
-    return result.hits.hits.map((val) => val._source);
+  @Get()
+  @ApiQuery({ name: 'page', type: 'number', required: false })
+  @ApiQuery({ name: 'text', type: 'string' })
+  async search(@Query() { page = 1, text }) {
+    const result = await this.searchService.search(text, page);
+    return {
+      total: result.hits.total['value'],
+      data: result.hits.hits.map((hit) => hit._source),
+    };
   }
 }

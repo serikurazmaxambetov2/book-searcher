@@ -4,7 +4,7 @@ import { BookCreateDto } from 'src/book/dto/book-create.dto';
 
 @Injectable()
 export class SearchService {
-  constructor(private elasticsearchService: ElasticsearchService) {}
+  constructor(private elasticsearchService: ElasticsearchService) { }
 
   async createIndex() {
     return await this.elasticsearchService.indices.create({
@@ -36,9 +36,12 @@ export class SearchService {
     return await this.elasticsearchService.indices.delete({ index: 'book' });
   }
 
-  async search(text: string) {
+  async search(text: string, pageNum: number) {
+    const pageSize = 10;
     return await this.elasticsearchService.search({
       index: 'book',
+      from: pageNum * pageSize,
+      size: pageSize,
       query: {
         bool: {
           should: [
