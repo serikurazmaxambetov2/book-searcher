@@ -8,5 +8,6 @@ router = Router()
 
 
 @router.message(CommandStart())
-async def cmd_start(_: types.Message, dialog_manager: DialogManager):
+async def cmd_start(msg: types.Message, dialog_manager: DialogManager):
+    await msg.delete()
     await dialog_manager.start(state=MainSG.MAIN)
