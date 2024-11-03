@@ -10,4 +10,4 @@ COPY . .
 RUN yarn build
 
 # Запуск
-CMD yarn prisma db push && yarn start:prod
+CMD sleep 10 && yarn prisma db push && yarn start:prod

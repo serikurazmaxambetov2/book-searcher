@@ -8,4 +8,4 @@ COPY poetry.lock pyproject.toml ./
 RUN poetry install
 
 COPY . .
-CMD poetry run python startup.py
+CMD sleep 30 && poetry run python startup.py
