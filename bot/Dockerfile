@@ -8,7 +8,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH="$POETRY_HOME/bin:$PATH"
 
 # Установка зависимостей
-COPY package.lock pyproject.toml ./
+COPY poetry.lock pyproject.toml ./
 RUN poetry install 
 
 # Копирование проекта
