@@ -30,6 +30,22 @@ services:
     volumes:
       - esdata:/usr/share/elasticsearch/data
 
+  bot:
+    build: ./bot
+    environment:
+      - BOT_TOKEN=$BOT_TOKEN
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - BACKEND_URL=http://backend:3000/
+    depends_on:
+      - backend
+
+  redis:
+    image: redis
+    volumes:
+      - redisdata:/data
+
 volumes:
   pgdata:
   esdata:
+  redisdata:
