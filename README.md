@@ -4,7 +4,7 @@
 
 ## Компоненты
 
-1. [Backend](backend/README.md)
+### [Backend](backend/README.md)
 
 Задачи:
 
@@ -12,7 +12,7 @@
 - Взаимодействие с PostgreSQL
 - Предоставление документаций к API через Swagger
 
-2. [Bot](bot/README.md)
+### [Bot](bot/README.md)
 
 Задачи:
 
@@ -20,7 +20,7 @@
 - Отдача в красивом виде
 - Взаимдоействие с backend
 
-3. [Scraper](scraper/README.md)
+### [Scraper](scraper/README.md)
 
 Задачи:
 
