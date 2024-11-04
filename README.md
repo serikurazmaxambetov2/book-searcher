@@ -2,6 +2,22 @@
 
 Это бот с крутым 😎 backend'ом.
 
+## Стэк
+
+- Python
+  - Aiogram
+  - Aiogram-Dialog
+  - Aiohttp
+  - Requests
+  - BS4
+  - concurrrent
+- JavaScript (TypeScript)
+  - Nest.JS
+    - Swagger
+  - PrismaORM
+- Redis
+- ElasticSearch
+
 ## Компоненты
 
 ### [Backend](backend/README.md)
