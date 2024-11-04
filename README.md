@@ -17,6 +17,7 @@
   - PrismaORM
 - Redis
 - ElasticSearch
+- Docker (+Compose)
 
 ## Компоненты
 
