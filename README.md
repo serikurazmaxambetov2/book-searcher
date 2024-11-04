@@ -10,7 +10,7 @@
   - Aiohttp
   - Requests
   - BS4
-  - concurrrent
+  - concurrent
 - JavaScript (TypeScript)
   - Nest.JS
     - Swagger
